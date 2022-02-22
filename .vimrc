@@ -12,7 +12,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'OmniSharp/omnisharp-vim'
 
-Plug 'xavierd/clang_complete'
+" Plug 'xavierd/clang_complete'
 
 Plug 'csliu/a.vim'
 
@@ -21,7 +21,6 @@ call plug#end()
 
 filetype indent plugin on
 set omnifunc=ale#completion#OmniFunc
-
 
 set completeopt=longest,menuone,popuphidden
 set completepopup=highlight:NONE
@@ -47,8 +46,6 @@ nnoremap <c-U> v$U<esc>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ss :A<cr>
-nnoremap > xp
-
 
 set cc=80
 set number
@@ -71,10 +68,10 @@ iabbrev tset test
 " ALE configuration
 let g:ale_linters = { 'cs': ['OmniSharp']}
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 
 " Make configuration
 autocmd Filetype make setlocal noexpandtab
-"autocmd BufRead,BufNewFile .c,.h setlocal comments=s:/*,mb:**,ex:*/
 
 " C++ shortcut
 autocmd Filetype cpp iabbrev cout std::cout
@@ -91,12 +88,11 @@ autocmd Filetype cs nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
 autocmd Filetype cs nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 
 " clang_complete configuration
-let g:clang_library_path = '/usr/lib/llvm-11/lib'
+let g:clang_library_path = '/usr/lib/llvm-14/lib'
 
 " a.vim config
 let g:alternateExtensions_cc = "hh"
 let g:alternateExtensions_hh = "cc"
-
 
 
 " per .git vim configs
