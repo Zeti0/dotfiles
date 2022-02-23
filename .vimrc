@@ -12,8 +12,6 @@ Plug 'dense-analysis/ale'
 
 Plug 'OmniSharp/omnisharp-vim'
 
-" Plug 'xavierd/clang_complete'
-
 Plug 'csliu/a.vim'
 
 call plug#end()
@@ -67,8 +65,11 @@ iabbrev tset test
 
 " ALE configuration
 let g:ale_linters = { 'cs': ['OmniSharp']}
-let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {'cpp' : ['clang-format']}
 
 " Make configuration
 autocmd Filetype make setlocal noexpandtab
@@ -78,6 +79,7 @@ autocmd Filetype cpp iabbrev cout std::cout
 autocmd Filetype cpp iabbrev cin std::cin
 autocmd Filetype cpp iabbrev cerr std::cerr
 autocmd Filetype cpp iabbrev clog std::clog
+autocmd Filetype cpp let g:ale_cpp_cc_options = '-std=c++20 -Wall -Wextra'
 
 set list listchars=tab:»·,trail:·
 
@@ -87,8 +89,9 @@ autocmd Filetype cs inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
 autocmd Filetype cs nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
 autocmd Filetype cs nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 
-" clang_complete configuration
-let g:clang_library_path = '/usr/lib/llvm-14/lib'
+" Java configuration
+autocmd Filetype java inoremap sout System.println("")<esc>hi
+autocmd Filetype java inoremap souf System.printf("")<esc>hi
 
 " a.vim config
 let g:alternateExtensions_cc = "hh"
