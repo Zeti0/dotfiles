@@ -6,13 +6,9 @@ Plug 'tpope/vim-vinegar'
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'ludovicchabant/vim-gutentags'
-
 Plug 'dense-analysis/ale'
 
 Plug 'OmniSharp/omnisharp-vim'
-
-" Plug 'xavierd/clang_complete'
 
 Plug 'csliu/a.vim'
 
@@ -72,7 +68,6 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {'cpp' : ['clang-format']}
-let g:ale_cpp_cc_options = '-std=c++20 -Wall -Wextra'
 
 " Make configuration
 autocmd Filetype make setlocal noexpandtab
@@ -91,12 +86,10 @@ autocmd Filetype cs inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
 autocmd Filetype cs nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
 autocmd Filetype cs nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 
-" Java configuration
-autocmd Filetype java inoremap sout System.println("")<esc>hi
-
 " a.vim config
 let g:alternateExtensions_cc = "hh"
 let g:alternateExtensions_hh = "cc"
+let g:alternateExtensions_hxx = "hh"
 
 
 " per .git vim configs
@@ -106,8 +99,6 @@ let git_settings = system("git config --get vim.settings")
 if strlen(git_settings)
 	exe "set" git_settings
 endif
-
-
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
