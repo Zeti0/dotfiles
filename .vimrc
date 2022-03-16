@@ -8,8 +8,6 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'dense-analysis/ale'
 
-Plug 'OmniSharp/omnisharp-vim'
-
 Plug 'csliu/a.vim'
 
 call plug#end()
@@ -42,6 +40,7 @@ nnoremap <c-U> v$U<esc>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ss :A<cr>
+nnoremap <leader>gd :ALEGoToDefinition<cr>
 
 set cc=80
 set number
