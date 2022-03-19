@@ -8,6 +8,8 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'dense-analysis/ale'
 
+Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+
 Plug 'csliu/a.vim'
 
 call plug#end()
@@ -19,8 +21,8 @@ set omnifunc=ale#completion#OmniFunc
 set completeopt=longest,menuone,popuphidden
 set completepopup=highlight:NONE
 
-highlight Pmenu ctermbg=gray
-highlight PmenuSel ctermbg=lightblue
+highlight Pmenu ctermbg=Black ctermfg=White
+highlight PmenuSel ctermbg=Black ctermfg=LightBlue
 
 let maplocalleader = "\\"
 let mapleader = ","
@@ -61,7 +63,8 @@ iabbrev lsit list
 iabbrev tset test
 
 " ALE configuration
-let g:ale_linters = { 'cs': ['OmniSharp'], 'cpp': ['clangd']}
+" let g:ale_disable_lsp = 1
+let g:ale_linters = { 'cs': ['OmniSharp'], 'cpp' : ['clangd'] }
 let g:ale_completion_enabled = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
@@ -80,8 +83,6 @@ autocmd Filetype cpp iabbrev clog std::clog
 set list listchars=tab:»·,trail:·
 
 " C# configuration
-autocmd Filetype cs inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
-            \ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
 autocmd Filetype cs nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
 autocmd Filetype cs nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 
