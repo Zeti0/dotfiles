@@ -1,0 +1,10 @@
+{
+    "diagnostic.displayByAle" : true,
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": "compile_commands.json",
+            "filetypes": ["c", "cpp"]
+        }
+    }
+}
