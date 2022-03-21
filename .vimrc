@@ -63,8 +63,8 @@ iabbrev lsit list
 iabbrev tset test
 
 " ALE configuration
-" let g:ale_disable_lsp = 1
-let g:ale_linters = { 'cs': ['OmniSharp'], 'cpp' : ['clangd'] }
+let g:ale_disable_lsp = 1
+let g:ale_linters = { 'cpp' : ['clangd'] }
 let g:ale_completion_enabled = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
